@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="../../lib" />
-import React from 'react'
+// @jsx h
+import {h} from 'preact';
 const HelloWorld = () => <p>Hello World!</p>
 describe('HelloWorld component', () => {
   it('works', () => {

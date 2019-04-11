@@ -1,7 +1,8 @@
 /// <reference types="cypress" />
 /// <reference types="../../lib" />
+// @jsx h
 import { Counter } from '../../src/counter.jsx'
-import React from 'react'
+import {h} from 'preact';
 
 /* eslint-env mocha */
 describe('Counter', () => {

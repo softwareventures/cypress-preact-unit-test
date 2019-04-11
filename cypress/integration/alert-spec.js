@@ -1,7 +1,8 @@
 /// <reference types="cypress" />
 /// <reference types="../../lib" />
+// @jsx h
 import HelloWorld from '../../src/stateless-alert.jsx'
-import React from 'react'
+import {h} from 'preact';
 
 /* eslint-env mocha */
 describe('Stateless alert', () => {

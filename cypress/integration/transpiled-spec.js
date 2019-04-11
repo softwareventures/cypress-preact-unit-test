@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="../../lib" />
 import { Transpiled } from '../../src/transpiled.jsx'
-import React from 'react'
+import {h} from 'preact';
 
 /* eslint-env mocha */
 describe('Transpiled', () => {

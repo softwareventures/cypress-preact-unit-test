@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="../../lib" />
 import { Users } from '../../src/users.jsx'
-import React from 'react'
+import {h} from 'preact';
 
 /* eslint-env mocha */
 context('Users', () => {

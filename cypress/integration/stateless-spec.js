@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 /// <reference types="../../lib" />
 import HelloWorld from '../../src/stateless.jsx'
-import React from 'react'
+import {h} from 'preact';
 
 /* eslint-env mocha */
 describe('Stateless component', () => {

@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
-import React from 'react'
+import {h, Component} from 'preact';
 import './Button.css'
 
-class Button extends React.Component {
+class Button extends Component {
   handleClick () {
     this.props.clickHandler(this.props.name)
   }
