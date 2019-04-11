@@ -1,10 +1,10 @@
-# cypress-react-unit-test [![Build Status](https://travis-ci.org/bahmutov/cypress-react-unit-test.svg?branch=master)](https://travis-ci.org/bahmutov/cypress-react-unit-test) [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://dashboard.cypress.io/#/projects/z9dxah) [![renovate-app badge][renovate-badge]][renovate-app]
+# cypress-preact-unit-test [![Build Status](https://travis-ci.com/softwareventures/cypress-preact-unit-test.svg?branch=master)](https://travis-ci.com/softwareventures/cypress-preact-unit-test) [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://dashboard.cypress.io/#/projects/9fzct1) [![renovate-app badge][renovate-badge]][renovate-app]
 
-> A little helper to unit test React components in the open source [Cypress.io](https://www.cypress.io/) E2E test runner **ALPHA**
+> A little helper to unit test Preact components in the open source [Cypress.io](https://www.cypress.io/) E2E test runner **ALPHA**
 
 ## TLDR
 
-* What is this? This package allows you to use [Cypress](https://www.cypress.io/) test runner to unit test your React components with zero effort.
+* What is this? This package allows you to use [Cypress](https://www.cypress.io/) test runner to unit test your Preact components with zero effort.
 
 * How is this different from [Enzyme](https://github.com/airbnb/enzyme)? It is similar in functionality BUT runs the component in the real browser with full power of Cypress E2E test runner: [live GUI, full API, screen recording, CI support, cross-platform](https://www.cypress.io/features/).
 
@@ -19,7 +19,7 @@
 Requires [Node](https://nodejs.org/en/) version 6 or above.
 
 ```sh
-npm install --save-dev cypress cypress-react-unit-test
+npm install --save-dev cypress cypress-preact-unit-test
 ```
 
 If you need help configuring bundler, see [preprocessors info](https://gitpitch.com/cypress-io/testing-workshop-cypress?p=slides/16-preprocessors)
@@ -29,10 +29,10 @@ If you need help configuring bundler, see [preprocessors info](https://gitpitch.
 Include this plugin from `cypress/support/index.js`
 
 ```js
-import 'cypress-react-unit-test'
+import 'cypress-preact-unit-test'
 ```
 
-This adds a new command `cy.mount` that can mount a React component. It also overloads `cy.get` to accept in addition to selectors React component, returning it. See examples below.
+This adds a new command `cy.mount` that can mount a Preact component. It also overloads `cy.get` to accept in addition to selectors Preact component, returning it. See examples below.
 
 ## Example
 
@@ -61,18 +61,17 @@ describe('HelloState component', () => {
 })
 ```
 
-![Unit testing React components](images/demo.png)
+![Unit testing Preact components](images/demo.png)
 
 ## Configuration
 
-If your React and React DOM libraries are installed in non-standard paths (think monorepo scenario), you can tell this plugin where to find them. In `cypress.json` specify paths like this:
+If your Preact library is installed in a non-standard path (think monorepo scenario), you can tell this plugin where to find them. In `cypress.json` specify paths like this:
 
 ```json
 {
   "env": {
-    "cypress-react-unit-test": {
-      "react": "node_modules/react/umd/react.development.js",
-      "react-dom": "node_modules/react-dom/umd/react-dom.development.js"
+    "cypress-preact-unit-test": {
+      "preact": "node_modules/preact/dist/preact.dev.js"
     }
   }
 }
