@@ -6,7 +6,10 @@ const webpackOptions = {
         test: /\.(js|jsx|mjs)$/,
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
+          presets: [
+              '@babel/preset-env',
+              ['@babel/preset-react', { "pragma": "h" }]
+          ],
           plugins: ['@babel/plugin-proposal-class-properties']
         }
       },
