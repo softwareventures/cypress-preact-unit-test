@@ -1,5 +1,5 @@
 {
-  "name": "cypress-preact-unit-test",
+  "name": "@softwareventures/cypress-preact-unit-test",
   "version": "0.0.0-development",
   "description": "Unit test Preact components using Cypress",
   "main": "dist",
