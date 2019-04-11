@@ -1,3 +1,4 @@
+/* tslint:disable */
 // I hope to get types and docs from functions imported from ./index one day
 // but for now have to document methods in both places
 // like this: import {mount} from './index'
@@ -12,8 +13,7 @@ interface ReactModule {
 declare namespace Cypress {
   interface Cypress {
     stylesCache: any
-    React: string
-    ReactDOM: string
+    preact: string
     Styles: string
     modules: ReactModule[]
   }
@@ -21,9 +21,9 @@ declare namespace Cypress {
   // NOTE: By default, avoiding React.Component/Element typings
   // for many cases, we don't want to import @types/react
   interface Chainable<Subject> {
-    state: (key) => any,
-    injectReactDOM: () => Chainable<void>
-    copyComponentStyles: (component: Symbol) => Chainable<void>
+    state: (key: any) => any,
+    injectPreact: () => Chainable<void>
+    copyComponentStyles: (component: preact.VNode) => Chainable<void>
     /**
      * Mount a React component in a blank document; register it as an alias
      * To access: use an alias or original component reference

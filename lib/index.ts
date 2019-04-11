@@ -1,10 +1,14 @@
+/* tslint:disable */
 /// <reference path="./index.d.ts" />
 
 // having weak reference to styles prevents garbage collection
 // and "losing" styles when the next test starts
+
+import {VNode} from "preact";
+
 const stylesCache = new Map();
 
-const setXMLHttpRequest = w => {
+const setXMLHttpRequest = (w: Window) => {
   // by grabbing the XMLHttpRequest from app's iframe
   // and putting it here - in the test iframe
   // we suddenly get spying and stubbing 😁
@@ -13,16 +17,16 @@ const setXMLHttpRequest = w => {
   return w
 };
 
-const setAlert = w => {
+const setAlert = (w: Window) => {
   window.alert = w.alert;
   return w
 };
 
-/** Initialize an empty document w/ ReactDOM and DOM events.
-    @function   cy.injectReactDOM
+/** Initialize an empty document w/ Preact and DOM events.
+    @function   cy.injectPreact
 **/
-Cypress.Commands.add('injectReactDOM', () => {
-  return cy.log('Injecting ReactDOM for Unit Testing').then(() => {
+Cypress.Commands.add('injectPreact', () => {
+  return cy.log('Injecting Preact for Unit Testing').then(() => {
     // Generate inline script tags for UMD modules
     const scripts = Cypress.modules
       .map(module => `<script>${module.source}</script>`)
@@ -53,7 +57,7 @@ Cypress.stylesCache = stylesCache;
     @function   cy.copyComponentStyles
     @param      {Object}  component
 **/
-Cypress.Commands.add('copyComponentStyles', component => {
+Cypress.Commands.add('copyComponentStyles', (component: preact.ComponentConstructor) => {
   // need to find same component when component is recompiled
   // by the JSX preprocessor. Thus have to use something else,
   // like component name
@@ -63,7 +67,7 @@ Cypress.Commands.add('copyComponentStyles', component => {
   // @ts-ignore
   const appDocument = parentDocument.querySelector('iframe.aut-iframe').contentDocument;
 
-  const hash = component.type.name;
+  const hash = component.displayName;
   let styles = specDocument.querySelectorAll('head style');
   if (styles.length) {
     cy.log(`injected ${styles.length} style(s)`);
@@ -80,7 +84,7 @@ Cypress.Commands.add('copyComponentStyles', component => {
     return
   }
   const head = appDocument.querySelector('head');
-  styles.forEach(function (style) {
+  styles.forEach(function (style: any) {
     head.appendChild(style)
   })
 });
@@ -104,22 +108,23 @@ Cypress.Commands.add('copyComponentStyles', component => {
  cy.get(Hello)
  ```
  **/
-export const mount = (jsx, alias?: string) => {
-  // Get the display name property via the component constructor
-  const displayname = alias || jsx.type.prototype.constructor.name;
+export const mount = (jsx: VNode<any>, alias?: string) => {
+  // Get the display name property via the component constructor if no alias is supplied
+  const displayname = alias || (typeof jsx.nodeName === "string" ? jsx.nodeName
+      : jsx.nodeName.prototype.constructor.name);
 
-  let cmd;
+  let cmd: Cypress.Log;
 
-  cy.injectReactDOM()
+  cy.injectPreact()
     .window({ log: false })
     .then(() => {
       cmd = Cypress.log({
         name: 'mount',
         // @ts-ignore
-        message: [`ReactDOM.render(<${displayname} ... />)`],
+        message: [`preact.render(<${displayname} ... />)`],
         consoleProps () {
           return {
-            props: jsx.props
+            props: jsx.attributes
           }
         }
       })
@@ -127,13 +132,13 @@ export const mount = (jsx, alias?: string) => {
     .then(setXMLHttpRequest)
     .then(setAlert)
     .then(win => {
-      const { ReactDOM } = win;
+      const { preact } = win as any;
       const document = cy.state('document');
-      const component = ReactDOM.render(
+      const component = preact.render(
         jsx,
         document.getElementById('cypress-jsdom')
       );
-      cy.wrap(component, { log: false }).as(displayname)
+      cy.wrap(component._component, { log: false }).as(displayname)
     });
   cy.copyComponentStyles(jsx)
     .then(() => {
@@ -144,7 +149,7 @@ export const mount = (jsx, alias?: string) => {
 Cypress.Commands.add('mount', mount);
 
 /** Get one or more DOM elements by selector or alias.
-    Features extended support for JSX and React.Component
+    Features extended support for JSX and preact.Component
     @function   cy.get
     @param      {string|object|function}  selector
     @param      {object}                  options
@@ -152,17 +157,18 @@ Cypress.Commands.add('mount', mount);
     @example    cy.get(<Component />)
     @example    cy.get(Component)
 **/
-Cypress.Commands.overwrite('get', (originalFn, selector, options) => {
+Cypress.Commands.overwrite('get', (originalFn, selector, options) => { // FIXME: All the above examples fail!
   switch (typeof selector) {
     case 'object':
       // If attempting to use JSX as a selector, reference the displayname
       if (
-        selector.$$typeof &&
-        selector.$$typeof.toString().startsWith('Symbol(react')
+        selector.nodeName !== undefined
       ) {
-        const displayname = selector.type.prototype.constructor.name;
+        const displayname = selector.nodeName.prototype.constructor.name;
         return originalFn(`@${displayname}`, options)
       }
+      // prevent fallthru
+      throw new Error("selector: " + JSON.stringify(selector));
     case 'function':
       // If attempting to use the component name without JSX (testing in .js/.ts files)
       const displayname = selector.prototype.constructor.name;
@@ -180,18 +186,13 @@ Before All
   Format: [{name, type, location}, ...]
 */
 before(() => {
-  const settings = Cypress.env('cypress-react-unit-test') || {};
+  const settings = Cypress.env('cypress-preact-unit-test') || {};
 
   const moduleNames = [
     {
-      name: 'react',
+      name: 'preact',
       type: 'file',
-      location: settings.react || 'node_modules/react/umd/react.development.js'
-    },
-    {
-      name: 'react-dom',
-      type: 'file',
-      location: settings['react-dom'] || 'node_modules/react-dom/umd/react-dom.development.js'
+      location: settings.preact || 'node_modules/preact/dist/preact.dev.js' // TODO: setState does not trigger render unless .dev
     }
   ];
 
