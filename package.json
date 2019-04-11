@@ -27,6 +27,7 @@
     "testing"
   ],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "contributors": ["Neale Upstone <nealeu@gmail.com>"],
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "7.4.3",
