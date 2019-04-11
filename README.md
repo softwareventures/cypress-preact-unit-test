@@ -41,7 +41,7 @@ This adds a new command `cy.mount` that can mount a React component. It also ove
 /// <reference types="cypress" />
 // import the component you want to test
 import { HelloState } from '../../src/hello-x.jsx'
-import React from 'react'
+import {h} from 'preact';
 describe('HelloState component', () => {
   it('works', () => {
     // mount the component under test
@@ -125,9 +125,9 @@ npm i -D @cypress/webpack-preprocessor \
 And write a component using class properties
 
 ```js
-import React from 'react'
+import {h, Component} from 'preact';
 
-export class Transpiled extends React.Component {
+export class Transpiled extends Component {
   state = {
     count: 0
   }
