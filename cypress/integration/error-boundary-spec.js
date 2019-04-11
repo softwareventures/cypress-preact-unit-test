@@ -12,8 +12,8 @@ describe('Error Boundary', () => {
     throw new Error(errorMessage)
     return null
   }
-
-  skip('renders normal children', () => { // TODO: Re-enable when testing against Preact 10
+debugger;
+  it.skip('renders normal children', () => { // TODO: Re-enable when testing against Preact 10
     cy.mount(
       <ErrorBoundary>
         <ChildWithoutError />
@@ -25,7 +25,7 @@ describe('Error Boundary', () => {
       .should('not.exist')
   })
 
-  skip('on error, display fallback UI', () => { // TODO: Re-enable when testing against Preact 10
+  it.skip('on error, display fallback UI', () => { // TODO: Re-enable when testing against Preact 10
     cy.mount(
       <ErrorBoundary>
         <ChildWithError />
