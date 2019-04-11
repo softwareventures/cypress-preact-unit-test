@@ -1,6 +1,6 @@
-import React from 'react'
+import {h, Component} from 'preact';
 
-export class HelloWorld extends React.Component {
+export class HelloWorld extends Component {
   render () {
     return <p>Hello World!</p>
   }

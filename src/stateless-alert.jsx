@@ -1,4 +1,4 @@
-import React from 'react'
+import {h} from 'preact';
 
 // example stateless component from
 // https://hackernoon.com/react-stateless-functional-components-nine-wins-you-might-have-overlooked-997b0d933dbc

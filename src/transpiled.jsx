@@ -1,6 +1,6 @@
-import React from 'react'
+import {h, Component} from 'preact';
 
-export class Transpiled extends React.Component {
+export class Transpiled extends Component {
   state = {
     count: 0
   }

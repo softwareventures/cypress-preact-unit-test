@@ -1,7 +1,7 @@
-import React from 'react'
+import {h, Component} from 'preact';
 import axios from 'axios'
 
-export class Users extends React.Component {
+export class Users extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -13,6 +13,7 @@ export class Users extends React.Component {
     axios.get('http://jsonplaceholder.typicode.com/users?_limit=3')
     .then(response => {
       // JSON responses are automatically parsed.
+      console.log("set state %o", response.data);
       this.setState({
         users: response.data
       })

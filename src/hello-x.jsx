@@ -1,13 +1,13 @@
-import React from 'react'
+import {h, Component} from 'preact';
 
 // pass name via props
-export class HelloX extends React.Component {
+export class HelloX extends Component {
   render () {
     return <p>Hello {this.props.name}!</p>
   }
 }
 
-export class HelloState extends React.Component {
+export class HelloState extends Component {
   constructor (props) {
     super(props)
     this.state = {

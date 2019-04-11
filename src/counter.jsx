@@ -1,6 +1,7 @@
-import React from 'react'
+// @jsx h
+import {h, Component} from 'preact';
 
-export class Counter extends React.Component {
+export class Counter extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -9,12 +10,15 @@ export class Counter extends React.Component {
   }
 
   click () {
-    this.setState({
-      count: this.state.count + 1
-    })
+    console.log("Clicked");
+    this.setState(state => ({
+      count: state.count + 1
+    }));
   }
 
   render () {
+    console.log("Render");
+
     return <p onClick={this.click.bind(this)}>count: {this.state.count}</p>
   }
 }

@@ -1,12 +1,12 @@
-import React from 'react'
+import {h, Component} from 'preact';
 
-export class ErrorBoundary extends React.Component {
+export class ErrorBoundary extends Component {
   constructor (props) {
     super(props)
     this.state = { error: null, info: '' }
   }
 
-  static getDerivedStateFromError (error) {
+  static getDerivedStateFromError (error) { // Requires Preact X (i.e. 10)
     console.error(error)
     return { error }
   }
@@ -16,7 +16,7 @@ export class ErrorBoundary extends React.Component {
     const { error } = this.state
     if (error) {
       return (
-        <React.Fragment>
+        <div> /* was React.Fragment */
           <header>
             <h1>Something went wrong.</h1>
             <h3>{`${name} failed to load`}</h3>
@@ -26,7 +26,7 @@ export class ErrorBoundary extends React.Component {
               <code>{JSON.stringify(error)}</code>
             </pre>
           </section>
-        </React.Fragment>
+        </div>
       )
     }
     return this.props.children
