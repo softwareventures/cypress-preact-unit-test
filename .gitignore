@@ -1,7 +1,6 @@
+/.idea/workspace.xml
+/.idea/tasks.xml
 public/
 node_modules/
 dist
 cypress/videos
-
-.idea/
-*.iml
