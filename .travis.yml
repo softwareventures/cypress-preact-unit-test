@@ -14,8 +14,6 @@ script:
   - npm run lint
   - npm run transpile
   - npm test -- --record
-after_success:
-  - npm run semantic-release
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
