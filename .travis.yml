@@ -4,7 +4,7 @@ cache:
     - ~/.npm
     - ~/.cache
 node_js:
-  - '10'
+  - "node"
 script:
   - npm run lint
   - npm run transpile
