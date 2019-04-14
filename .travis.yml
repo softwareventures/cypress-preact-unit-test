@@ -6,6 +6,3 @@ script:
   - yarn lint
   - yarn transpile
   - yarn test -- --record
-branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
