@@ -28,7 +28,8 @@
   ],
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "contributors": [
-    "Neale Upstone <nealeu@gmail.com>"
+    "Neale Upstone <nealeu@gmail.com>",
+    "Daniel Cassidy <mail@danielcassidy.me.uk>"
   ],
   "license": "ISC",
   "devDependencies": {
