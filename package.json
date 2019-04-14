@@ -20,7 +20,7 @@
   ],
   "types": "lib",
   "keywords": [
-    "react",
+    "preact",
     "cypress",
     "cypress-io",
     "test",
