@@ -1,10 +1,7 @@
 language: node_js
-cache:
-  directories:
-    - ~/.npm
-    - ~/.cache
 node_js:
   - "node"
+cache: yarn
 script:
   - npm run lint
   - npm run transpile
