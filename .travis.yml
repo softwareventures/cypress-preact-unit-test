@@ -3,9 +3,6 @@ cache:
   directories:
     - ~/.npm
     - ~/.cache
-  override:
-    - npm ci
-    - $(npm bin)/cypress verify
 node_js:
   - '10'
 script:
