@@ -2,18 +2,6 @@
   "name": "@softwareventures/cypress-preact-unit-test",
   "version": "0.0.0-development",
   "description": "Unit test Preact components using Cypress",
-  "main": "dist",
-  "module": "lib",
-  "scripts": {
-    "prepare": "tsc",
-    "test": "tslint --project . && cypress run",
-    "cy:open": "cypress open"
-  },
-  "files": [
-    "dist",
-    "lib"
-  ],
-  "types": "lib",
   "keywords": [
     "preact",
     "cypress",
@@ -26,7 +14,20 @@
     "Neale Upstone <nealeu@gmail.com>",
     "Daniel Cassidy <mail@danielcassidy.me.uk>"
   ],
+  "repository": "github:softwareventures/cypress-preact-unit-test.git",
   "license": "ISC",
+  "scripts": {
+    "prepare": "tsc",
+    "test": "tslint --project . && cypress run",
+    "cy:open": "cypress open"
+  },
+  "main": "dist",
+  "module": "lib",
+  "types": "lib",
+  "files": [
+    "dist",
+    "lib"
+  ],
   "devDependencies": {
     "@babel/core": "7.4.3",
     "@babel/plugin-proposal-class-properties": "7.4.0",
@@ -48,7 +49,6 @@
     "webpack": "4.30.0",
     "webpack-cli": "3.3.0"
   },
-  "repository": "github:softwareventures/cypress-preact-unit-test.git",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
