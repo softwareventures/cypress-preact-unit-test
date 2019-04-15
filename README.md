@@ -1,4 +1,4 @@
-# cypress-preact-unit-test [![Build Status](https://travis-ci.com/softwareventures/cypress-preact-unit-test.svg?branch=master)](https://travis-ci.com/softwareventures/cypress-preact-unit-test) [![Cypress.io tests](https://img.shields.io/badge/cypress.io-tests-green.svg?style=flat-square)](https://dashboard.cypress.io/#/projects/9fzct1) [![renovate-app badge][renovate-badge]][renovate-app]
+# cypress-preact-unit-test [![Build Status](https://travis-ci.com/softwareventures/cypress-preact-unit-test.svg?branch=master)](https://travis-ci.com/softwareventures/cypress-preact-unit-test) [![renovate-app badge][renovate-badge]][renovate-app]
 
 > A little helper to unit test Preact components in the open source [Cypress.io](https://www.cypress.io/) E2E test runner **ALPHA**
 
