@@ -8,8 +8,7 @@
     "prepare": "tsc",
     "test": "cypress run",
     "cy:open": "cypress open",
-    "watch": "tsc -w",
-    "semantic-release": "semantic-action pre && npm run transpile && npm publish && semantic-action post"
+    "watch": "tsc -w"
   },
   "files": [
     "dist",
