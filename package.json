@@ -6,7 +6,6 @@
   "module": "lib",
   "scripts": {
     "test": "cypress run",
-    "build": "webpack -d",
     "cy:open": "cypress open",
     "transpile": "tsc",
     "watch": "tsc -w",
