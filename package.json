@@ -39,7 +39,6 @@
     "css-loader": "2.1.1",
     "cypress": "3.2.0",
     "cz-conventional-changelog": "2.1.0",
-    "github-post-release": "1.13.1",
     "preact": "8.4.2",
     "semantic-action": "1.1.6",
     "style-loader": "0.23.1",
@@ -50,10 +49,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/softwareventures/cypress-preact-unit-test.git"
-  },
-  "release": {
-    "analyzeCommits": "simple-commit-message",
-    "generateNotes": "github-post-release"
   },
   "config": {
     "commitizen": {
