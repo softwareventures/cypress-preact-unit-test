@@ -14,7 +14,7 @@
     "Neale Upstone <nealeu@gmail.com>",
     "Daniel Cassidy <mail@danielcassidy.me.uk>"
   ],
-  "repository": "github:softwareventures/cypress-preact-unit-test.git",
+  "repository": "github:softwareventures/cypress-preact-unit-test",
   "license": "ISC",
   "scripts": {
     "prepare": "tsc",
