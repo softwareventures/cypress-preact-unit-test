@@ -7,8 +7,7 @@
   "scripts": {
     "prepare": "tsc",
     "test": "cypress run",
-    "cy:open": "cypress open",
-    "watch": "tsc -w"
+    "cy:open": "cypress open"
   },
   "files": [
     "dist",
