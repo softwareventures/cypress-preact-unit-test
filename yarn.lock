@@ -770,6 +770,11 @@
     conventional-changelog "1.1.4"
     github-url-from-git "^1.4.0"
 
+"@softwareventures/tsconfig@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@softwareventures/tsconfig/-/tsconfig-2.0.0.tgz#0f6b39d1d57369d1c3755e20a82a0927fcc5345b"
+  integrity sha512-YofNP/DVay6Ttq28wJxRdoWKf6NjlGiTGMbDic1xI+VZexE9Ybj7IaYZkABD93pmO6ms5piu5lz0zMd39Ee/dg==
+
 "@webassemblyjs/ast@1.8.5":
   version "1.8.5"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.8.5.tgz#51b1c5fe6576a34953bf4b253df9f0d490d9e359"

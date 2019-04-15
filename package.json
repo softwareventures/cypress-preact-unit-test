@@ -33,6 +33,7 @@
     "@babel/preset-env": "7.4.3",
     "@babel/preset-react": "7.0.0",
     "@cypress/webpack-preprocessor": "4.0.3",
+    "@softwareventures/tsconfig": "2.0.0",
     "axios": "0.18.0",
     "babel-loader": "8.0.5",
     "css-loader": "2.1.1",
