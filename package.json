@@ -10,8 +10,7 @@
     "cy:open": "cypress open",
     "transpile": "tsc",
     "watch": "tsc -w",
-    "pretest": "yarn lint && yarn transpile",
-    "lint": "standard --verbose --fix *.js src cypress/integration",
+    "pretest": "yarn transpile",
     "semantic-release": "semantic-action pre && npm run transpile && npm publish && semantic-action post"
   },
   "files": [
@@ -47,18 +46,10 @@
     "github-post-release": "1.13.1",
     "preact": "8.4.2",
     "semantic-action": "1.1.6",
-    "standard": "12.0.1",
     "style-loader": "0.23.1",
     "typescript": "3.4.3",
     "webpack": "4.30.0",
     "webpack-cli": "3.3.0"
-  },
-  "standard": {
-    "globals": [
-      "Cypress",
-      "cy",
-      "expect"
-    ]
   },
   "repository": {
     "type": "git",
