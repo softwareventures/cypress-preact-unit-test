@@ -5,11 +5,10 @@
   "main": "dist",
   "module": "lib",
   "scripts": {
+    "prepare": "tsc",
     "test": "cypress run",
     "cy:open": "cypress open",
-    "transpile": "tsc",
     "watch": "tsc -w",
-    "pretest": "yarn transpile",
     "semantic-release": "semantic-action pre && npm run transpile && npm publish && semantic-action post"
   },
   "files": [
