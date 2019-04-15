@@ -6,7 +6,7 @@
   "module": "lib",
   "scripts": {
     "prepare": "tsc",
-    "test": "cypress run",
+    "test": "tslint --project . && cypress run",
     "cy:open": "cypress open"
   },
   "files": [
@@ -34,6 +34,7 @@
     "@babel/preset-react": "7.0.0",
     "@cypress/webpack-preprocessor": "4.0.3",
     "@softwareventures/tsconfig": "2.0.0",
+    "@softwareventures/tslint-rules": "0.6.6",
     "axios": "0.18.0",
     "babel-loader": "8.0.5",
     "css-loader": "2.1.1",
@@ -42,6 +43,7 @@
     "preact": "8.4.2",
     "semantic-action": "1.1.6",
     "style-loader": "0.23.1",
+    "tslint": "5.15.0",
     "typescript": "3.4.3",
     "webpack": "4.30.0",
     "webpack-cli": "3.3.0"
