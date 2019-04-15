@@ -3,6 +3,5 @@ node_js:
   - "node"
 cache: yarn
 script:
-  - yarn lint
   - yarn transpile
   - yarn test -- --record
