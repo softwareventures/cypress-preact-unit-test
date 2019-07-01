@@ -48,7 +48,7 @@
     "style-loader": "0.23.1",
     "tslint": "5.17.0",
     "typescript": "3.5.1",
-    "webpack": "4.33.0",
+    "webpack": "4.35.2",
     "webpack-cli": "3.3.4"
   },
   "config": {
